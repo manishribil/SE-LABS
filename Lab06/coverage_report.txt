@@ -1,0 +1,56 @@
+================================== test session starts ===================================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python
+rootdir: /root/L6_L7_18_atm_withdrawal/Lab 6
+plugins: platformdirs-4.13.3, anyio-4.15.1, cov-7.1.0
+collecting ... collected 40 items
+
+test_atm_withdrawal.py::test_simple_withdrawal PASSED                              [  2%]
+test_atm_withdrawal.py::test_correct_pin PASSED                                    [  5%]
+test_atm_withdrawal.py::test_withdraw_unknown_account_raises PASSED                [  7%]
+test_atm_withdrawal.py::test_withdraw_invalid_amount_raises[0] PASSED              [ 10%]
+test_atm_withdrawal.py::test_withdraw_invalid_amount_raises[-100] PASSED           [ 12%]
+test_atm_withdrawal.py::test_withdraw_invalid_amount_raises[150] PASSED            [ 15%]
+test_atm_withdrawal.py::test_withdraw_unknown_account_is_checked_before_amount PASSED [ 17%]
+test_atm_withdrawal.py::test_withdraw_daily_limit[savings-25000-75000] PASSED      [ 20%]
+test_atm_withdrawal.py::test_withdraw_daily_limit[savings-25100-limit exceeded] PASSED [ 22%]
+test_atm_withdrawal.py::test_withdraw_daily_limit[current-50000-50000] PASSED      [ 25%]
+test_atm_withdrawal.py::test_withdraw_daily_limit[current-50100-limit exceeded] PASSED [ 27%]
+test_atm_withdrawal.py::test_withdraw_limit_is_checked_before_balance PASSED       [ 30%]
+test_atm_withdrawal.py::test_own_bank_pays_no_fee PASSED                           [ 32%]
+test_atm_withdrawal.py::test_other_bank_small_amount_pays_base_fee PASSED          [ 35%]
+test_atm_withdrawal.py::test_other_bank_fee_at_10000_has_no_surcharge PASSED       [ 37%]
+test_atm_withdrawal.py::test_other_bank_fee_above_10000_has_surcharge PASSED       [ 40%]
+test_atm_withdrawal.py::test_own_bank_amount_above_balance_is_insufficient PASSED  [ 42%]
+test_atm_withdrawal.py::test_own_bank_can_withdraw_entire_balance PASSED           [ 45%]
+test_atm_withdrawal.py::test_other_bank_fee_pushes_total_above_balance PASSED      [ 47%]
+test_atm_withdrawal.py::test_other_bank_balance_exactly_covers_amount_and_fee PASSED [ 50%]
+test_atm_withdrawal.py::test_other_bank_surcharge_pushes_total_above_balance PASSED [ 52%]
+test_atm_withdrawal.py::test_other_bank_balance_exactly_covers_amount_and_surcharge PASSED [ 55%]
+test_atm_withdrawal.py::test_pin_blocked_once_attempts_used_up[3] PASSED           [ 57%]
+test_atm_withdrawal.py::test_pin_blocked_once_attempts_used_up[4] PASSED           [ 60%]
+test_atm_withdrawal.py::test_correct_pin_on_last_attempt PASSED                    [ 62%]
+test_atm_withdrawal.py::test_wrong_pin_on_last_attempt_blocks_card PASSED          [ 65%]
+test_atm_withdrawal.py::test_wrong_pin_with_attempts_left_retries[0] PASSED        [ 67%]
+test_atm_withdrawal.py::test_wrong_pin_with_attempts_left_retries[1] PASSED        [ 70%]
+test_atm_withdrawal.py::test_note_breakup_invalid_amount_raises[50] PASSED         [ 72%]
+test_atm_withdrawal.py::test_note_breakup_invalid_amount_raises[150] PASSED        [ 75%]
+test_atm_withdrawal.py::test_note_breakup_invalid_amount_raises[1099] PASSED       [ 77%]
+test_atm_withdrawal.py::test_note_breakup[0-expected0] PASSED                      [ 80%]
+test_atm_withdrawal.py::test_note_breakup[100-expected1] PASSED                    [ 82%]
+test_atm_withdrawal.py::test_note_breakup[200-expected2] PASSED                    [ 85%]
+test_atm_withdrawal.py::test_note_breakup[300-expected3] PASSED                    [ 87%]
+test_atm_withdrawal.py::test_note_breakup[400-expected4] PASSED                    [ 90%]
+test_atm_withdrawal.py::test_note_breakup[500-expected5] PASSED                    [ 92%]
+test_atm_withdrawal.py::test_note_breakup[600-expected6] PASSED                    [ 95%]
+test_atm_withdrawal.py::test_note_breakup[900-expected7] PASSED                    [ 97%]
+test_atm_withdrawal.py::test_note_breakup[2800-expected8] PASSED                   [100%]
+
+===================================== tests coverage =====================================
+____________________ coverage: platform linux, python 3.13.18-final-0 ____________________
+
+Name                Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------
+atm_withdrawal.py      34      0     22      0   100%
+---------------------------------------------------------------
+TOTAL                  34      0     22      0   100%
+=================================== 40 passed in 0.11s ===================================
